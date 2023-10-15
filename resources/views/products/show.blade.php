@@ -6,8 +6,10 @@
                     <ul class="slides">
                         @foreach ($product->images as $image)
                         
-                            <li data-thumb=" {{ Storage::url($image->url) }}">
-                                <img src=" {{ Storage::url($image->url) }}" />
+                            <li data-thumb=" {{  asset('storage/' . $image->url) }}">
+                                <img class="h-48 w-full object-cover object-center" src="{{ asset('storage/' . $image->url) }}" alt="">
+
+                                {{-- <img src=" {{ Storage::url($image->url) }}" /> --}}
                             </li>
 
                         @endforeach
@@ -39,7 +41,10 @@
                         </span>
                         
                         <div class="ml-4">
-                            <p class="text-lg font-semibold text-greenLime-600">Se hace envíos a todo el Perú</p>
+                            <p class="text-lg font-semibold text-greenLime-600">Se hace envíos a todo Bolivia</p>
+
+
+                            {{-- se agrega 7 desde el pedido  --}}
                             <p>Recibelo el {{ Date::now()->addDay(7)->locale('es')->format('l j F') }}</p>
                         </div>
                     </div>

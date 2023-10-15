@@ -53,7 +53,7 @@
 
                         @if ($order->envio_type == 1)
                             <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                            <p class="text-sm">Calle falsa 123</p>
+                            <p class="text-sm">direccion: dasndkasndjdasbdsajdkasjdkajsk</p>
                         @else
                             <p class="text-sm">Los productos Serán enviados a:</p>
                             <p class="text-sm">{{ $envio->address }}</p>
@@ -91,7 +91,10 @@
                             <tr>
                                 <td>
                                     <div class="flex">
-                                        <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}"
+                                        {{-- <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}"
+                                            alt=""> --}}
+                                            <img class="h-10 w-10 rounded-full object-cover object-center"
+                                            src="{{ asset ('storage/' .  str_replace('http://ecommerce.test/storage/', '', $item->options->image)) }}"
                                             alt="">
                                         <article>
                                             <h1 class="font-bold">{{ $item->name }}</h1>
@@ -181,9 +184,21 @@
 
     @push('script')
         
+
+
+    {{-- <form action="{{ route('payments.store') }}" method="post">
+        @csrf
+    
+        <input type="hidden" name="order_id" value="{{ $order->id }}">
+    
+        <button type="submit" class="btn btn-primary">
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/btn/btn_paynow_pp_142x47.png" alt="PayPal">
+        </button>
+    </form> --}}
+    
     
 
-        <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}">
+         <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}">
             // Replace YOUR_CLIENT_ID with your sandbox client ID
 
         </script>
@@ -196,6 +211,7 @@
                         purchase_units: [{
                             amount: {
                                 value: "{{ $order->total }}"
+                                //value:100.00 
                             }
                         }]
                     });
@@ -205,14 +221,57 @@
 
                         Livewire.emit('payOrder');
 
-                        /* console.log(details);
+                         console.log(details);
 
-                        alert('Transaction completed by ' + details.payer.name.given_name); */
+                        alert('Transaction completed by ' + details.payer.name.given_name); 
                     });
                 }
             }).render('#paypal-button-container'); // Display payment options on your web page
 
-        </script>
+        </script>  
+
+
+{{-- <script>
+
+    paypal.Buttons({
+
+        // Sets up the transaction when a payment button is clicked
+
+        createOrder: function (data, actions) {
+
+            return actions.order.create({
+
+            purchase_units: [{
+
+                    amount: {
+
+                    value: '0.01'
+
+                        }
+
+                    }]
+
+                });
+
+        },
+
+        // Finalize the transaction after payer approval
+
+        onApprove: function (data, actions) {
+
+          return actions.order.capture().then(function(details){
+
+            alert('Transaction completed by ' + details.payer.name.given_name);
+
+          });
+
+        }
+
+      }).render("#paypal-button-container");
+
+</script> --}}
+
+
 
     @endpush
 </div>

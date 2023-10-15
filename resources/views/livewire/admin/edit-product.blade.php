@@ -1,9 +1,9 @@
 <div>
 
-    <header class="bg-white shadow">
+    <header class="bg-gray-500 shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
-                <h1 class="font-semibold text-xl text-gray-800 leading-tight">
+                <h1 class="font-semibold text-xl text-white leading-tight">
                     Productos
                 </h1>
 
@@ -16,7 +16,7 @@
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-700">
 
-        <h1 class="text-3xl text-center font-semibold mb-8">Complete esta información para crear un producto</h1>
+        <h1 class="text-3xl text-center font-semibold mb-8 text-white">Complete esta información para crear un producto</h1>
 
         <div class="mb-4" wire:ignore>
             <form action="{{ route('admin.products.files', $product) }}" method="POST" class="dropzone"
@@ -32,7 +32,8 @@
                     @foreach ($product->images as $image)
 
                         <li class="relative" wire:key="image-{{ $image->id }}">
-                            <img class="w-32 h-20 object-cover" src="{{ Storage::url($image->url) }}" alt="">
+                            <img class="w-32 h-20 object-cover" src="{{ asset('storage/' . $image->url) }}" alt="">
+                            {{-- <img class="h-48 w-full object-cover object-center" src="{{ asset('storage/' . $product->images->first()->url ) }}" alt=""> --}}
                             <x-jet-danger-button class="absolute right-2 top-2"
                                 wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled"
                                 wire:target="deleteImage({{ $image->id }})">

@@ -16,10 +16,31 @@ class AddCartItem extends Component
         'size_id' => null
     ];
 
+
+
+
+
+
+
+
+    
+      
     public function mount(){
         $this->quantity = qty_available($this->product->id);
+
+
+        //$this->options['image'] = str_replace('http://ecommerce.test', '', Storage::url($this->product->images->first()->url));
+        //$this->options['image'] = Storage::url($this->product->images->first());
         $this->options['image'] = Storage::url($this->product->images->first()->url);
+       
+       // $this->options['image'] = url(Storage::url($this->product->images->first()->url));
+       //$this->options['image'] = getFileName($this->product->images->first()->url);
+
     }
+
+   
+
+
 
     public function decrement(){
         $this->qty = $this->qty - 1;

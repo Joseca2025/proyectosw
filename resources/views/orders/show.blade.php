@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="absolute -left-1.5 mt-0.5">
-                    <p>Recibido</p>
+                    <p>Recibidos</p>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
 
                     @if ($order->envio_type == 1)
                         <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                        <p class="text-sm">Calle falsa 123</p>
+                        <p class="text-sm">Calle </p>
                     @else
                         <p class="text-sm">Los productos Serán enviados a:</p>
                         <p class="text-sm">{{ $envio->address }}</p>

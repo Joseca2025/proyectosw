@@ -9,7 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Livewire\ShoppingCart;
 use App\Http\Livewire\CreateOrder;
-
+use App\Http\Controllers\PaymentController;
 use App\Http\Livewire\PaymentOrder;
 
 use App\Http\Controllers\WebhooksController;
@@ -18,6 +18,10 @@ use App\Models\Order;
 Route::get('/', WelcomeController::class);
 
 Route::get('search', SearchController::class)->name('search');
+Route::get('search', SearchController::class)->name('search');
+
+
+
 
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 

@@ -4,11 +4,11 @@
 
         <section class="grid grid-cols-4 gap-6 text-white">
            
-            <a href="{{ route('admin.orders.index') . "?status=2" }}" class="bg-gray-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('admin.orders.index') . "?status=2" }}" class="bg-blue-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{$recibido}}
                 </p>
-                <p class="uppercase text-center">Recibido</p>
+                <p class="uppercase text-center">Recibidos</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-credit-card"></i>
                 </p>
