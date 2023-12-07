@@ -40,7 +40,7 @@
         <x-jet-banner />
 
         {{-- <div class="min-h-screen bg-gray-100"> --}}
-            <div class="min-h-screen bg-gray-500">   
+            <div class="min-h-screen bg-gray-200">   
             @livewire('navigation')
             
             <!-- Page Content -->

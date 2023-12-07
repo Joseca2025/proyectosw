@@ -1,5 +1,5 @@
 {{-- <header class="bg-trueGray-700 sticky top-0" style="z-index: 900" x-data="dropdown()"> --}}
-    <header class="bg-red-500 sticky top-0" style="z-index: 900" x-data="dropdown()">   
+    <header class="bg-black sticky top-0" style="z-index: 900" x-data="dropdown()">   
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a  :class="{'bg-opacity-100 text-orange-500' : open}"
             x-on:click="show()"
@@ -18,16 +18,12 @@
         </a>
 
         <a href="/" class="mx-6">
-            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <svg class="h-12 w-12" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <!-- Icono de la tienda -->
-                <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                <!-- Detalles de la ropa -->
-                <path class="inline-flex" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 4v8M14 4v8" />
-                <!-- Puerta de la tienda -->
-                <rect class="inline-flex" width="4" height="16" x="10" y="4" fill="currentColor" />
-                <!-- Percha de ropa -->
-                <path class="inline-flex" stroke="currentColor" stroke-width="2" d="M7 12h2M7 16h2" />
+                <image href="{{ asset('img/logo1.png') }}" width="24" height="24" />
+                <!-- Detalles adicionales si es necesario -->
             </svg>
+            
 
             {{-- <x-jet-application-mark class="block h-9 w-auto" /> --}}
         </a>
